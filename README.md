@@ -1,6 +1,5 @@
 
-**🌤 Moonlight Weather API – Developer Documentation
-**
+**🌤 Moonlight Weather API – Developer Documentation**
 Moonlight Weather API is a simple, JSON-based service that lets developers fetch:
 
 current weather
