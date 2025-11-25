@@ -17,7 +17,7 @@ This is a **mock API** designed for learning and portfolio purposes.
 https://api.moonlightweather.com/v1
 All endpoints described below are relative to this base URL.
 
-🔐 Authentication
+**🔐 Authentication**
 Moonlight Weather API uses a simple API key.
 
 Include your key in the Authorization header for every request:
@@ -34,7 +34,8 @@ HTTP 401 Unauthorized
   "error": "invalid_api_key",
   "message": "A valid API key is required in the Authorization header."
 }
-🌍 Common Concepts
+
+**🌍 Common Concepts**
 Units
 You can choose metric or imperial units:
 
@@ -44,19 +45,19 @@ imperial → °F, mph
 
 If not provided, metric is used by default.
 
-Time Format
+**Time Format**
 All timestamps are returned in ISO 8601 format in UTC, for example:
 
 text
 Copy code
 2025-11-24T19:30:00Z
-📘 Endpoint Reference
-1. Get Current Weather
+**📘 Endpoint Reference**
+**1. Get Current Weather**
 GET /weather/current
 
 Returns the current weather for a given location.
 
-Query Parameters
+**Query Parameters**
 Name	Type	Required	Description
 city	string	no*	City name (e.g., London).
 lat	number	no*	Latitude in decimal degrees.
@@ -66,12 +67,12 @@ units	string	no	metric or imperial (default: metric).
 * You must provide either city or lat+lon.
 If both are provided, lat+lon take priority.
 
-Example Request (by city)
+**Example Request (by city)**
 http
 Copy code
 GET /v1/weather/current?city=London&units=metric
 Authorization: Bearer YOUR_API_KEY
-Example Response
+**Example Response**
 json
 Copy code
 {
@@ -94,7 +95,8 @@ Copy code
   },
   "units": "metric"
 }
-Possible Errors
+
+**Possible Errors**
 400 Bad Request – missing or invalid parameters
 
 401 Unauthorized – missing/invalid API key
@@ -107,12 +109,12 @@ Copy code
   "error": "location_not_found",
   "message": "We could not find weather data for the specified location."
 }
-2. Get 5-Day Forecast
-GET /weather/forecast
+**2. Get 5-Day Forecast**
+**GET /weather/forecast**
 
 Returns a 5-day forecast in 3-hour intervals.
 
-Query Parameters
+**Query Parameters**
 Name	Type	Required	Description
 city	string	no*	City name (e.g., Cairo).
 lat	number	no*	Latitude in decimal degrees.
@@ -122,12 +124,13 @@ limit	int	no	Max number of forecast entries (default: 40, max 40)
 
 * Provide either city or lat+lon.
 
-Example Request
+**Example Request**
 http
 Copy code
 GET /v1/weather/forecast?city=Cairo&units=metric&limit=8
 Authorization: Bearer YOUR_API_KEY
-Example Response
+
+**Example Response**
 json
 Copy code
 {
@@ -164,7 +167,8 @@ Copy code
     // ... up to `limit` entries
   ]
 }
-Possible Errors
+
+**Possible Errors**
 Same as /weather/current:
 
 400 Bad Request
@@ -173,23 +177,24 @@ Same as /weather/current:
 
 404 Not Found
 
-3. API Health Check
-GET /health
+**3. API Health Check**
+**GET /health**
 
 Simple endpoint to confirm the API is running.
 
-Example Request
+**Example Request**
 http
 Copy code
 GET /v1/health
-Example Response
+
+**Example Response**
 json
 Copy code
 {
   "status": "ok",
   "time": "2025-11-24T19:05:00Z"
 }
-🚦 Rate Limiting
+**🚦 Rate Limiting**
 For this mock API, assume:
 
 Free tier: 60 requests / minute
@@ -203,7 +208,8 @@ HTTP 429 Too Many Requests
   "error": "rate_limit_exceeded",
   "message": "You have exceeded the rate limit of 60 requests per minute. Please wait and try again."
 }
-🧪 Example Usage (Python)
+
+**🧪 Example Usage (Python)**
 python
 Copy code
 import requests
@@ -233,7 +239,7 @@ Congratulations — that’s already a **complete technical writing project**.
 
 ---
 
-## 🧾 Step 4 – Initialize Git and commit (optional but recommended)
+**## 🧾 Step 4 – Initialize Git and commit (optional but recommended)**
 
 Open the **terminal** in VS Code (bottom panel):
 
@@ -246,7 +252,7 @@ Open the **terminal** in VS Code (bottom panel):
    git commit -m "Add Weather API documentation"
 If Git complains about username/email, we can fix that, but you’ve done this before for your other repos, so you might be set.
 
-🌐 Step 5 – Create a GitHub repo and push
+**🌐 Step 5 – Create a GitHub repo and push**
 Go to GitHub → click New Repository
 
 Name it something like:
